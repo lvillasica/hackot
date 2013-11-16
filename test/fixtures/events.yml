@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  relief_center_id: 1
+  volunteers_needed: 1
+  details: MyString
+  status: 1
+
+two:
+  relief_center_id: 1
+  volunteers_needed: 1
+  details: MyString
+  status: 1
