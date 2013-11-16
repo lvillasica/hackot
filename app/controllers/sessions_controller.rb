@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = @resource.find_by_provider_and_uid(auth["provider"], auth["uid"].to_s) || @resource.create_from_auth(auth)
     session[:uid] = user.uid
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to index_path }
       format.js { render json: { :success => session[:uid].present? } }
   end
     end

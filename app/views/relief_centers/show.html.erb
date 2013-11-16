@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="span5">
+    <%= render 'event_form' %>
+  </div>
+
+  <div class="span7">
+    <h4>Announcements</h4>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th width="10%">Date</th>
+          <th>Title</th>
+          <th width="30%">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% 50.times do %>
+        <tr>
+          <td>11/16/13</td>
+          <td>Title here</td>
+          <td>
+            <a href="#" class="btn">Edit</a>
+            <a href="#" class="btn btn-danger">Cancel</a>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

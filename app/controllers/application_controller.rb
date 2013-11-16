@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_resource
+  helper_method :current_resource, :is_rc?, :is_user
 
   protected
   def current_resource
@@ -13,5 +13,24 @@ class ApplicationController < ActionController::Base
   		session[:type] = nil
   		redirect_to :root_path
   	end
+  end
+
+  def index_path
+    if current_resource
+      if is_rc?
+        relief_center_path(current_resource.id)
+      else
+      end
+    else
+      root_path
+    end
+  end
+
+  def is_rc?
+    session[:type] == ReliefCenter
+  end
+
+  def is_user?
+    session[:type] == User
   end
 end

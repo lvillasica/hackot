@@ -6,5 +6,6 @@ class ReliefCentersController < ApplicationController
 
   def show
     @relief_center = ReliefCenter.find_by_id(params[:id])
+    @event = @relief_center.events.build
   end
 end

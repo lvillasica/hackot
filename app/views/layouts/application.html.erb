@@ -12,6 +12,7 @@
         <a class="brand" href="/">Hackot</a>
         <% if current_resource %>
         <a href="/logout" class="btn pull-right">Sign Out</a>
+        <%= link_to "Edit Profile", relief_center_path(current_resource.id), :class => "btn pull-right" %>
         <% else %>
         <a href="/auth/facebook?type=relief_center" class="btn pull-right">Login with facebook</a>
         <% end %>
