@@ -10,7 +10,11 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="/">Hackot</a>
-        <a href="/" class="btn pull-right">Login with facebook</a>
+        <% if current_resource %>
+        <a href="/logout" class="btn pull-right">Sign Out</a>
+        <% else %>
+        <a href="/auth/facebook?type=relief_center" class="btn pull-right">Login with facebook</a>
+        <% end %>
       </div>
     </div>
   </div>
