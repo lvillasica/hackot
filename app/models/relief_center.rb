@@ -5,8 +5,8 @@ class ReliefCenter < ActiveRecord::Base
   has_many :events
 
   # V A L I D A T I O N S
-  validates_numericality_of :latitude, :longitude
-  validates_presence_of :name, :description
+  validates_numericality_of :latitude, :longitude, :allow_nil => true
+  validates_presence_of :name
   validate :identifier, :presence => true, :length => { :minimum => 3, :maximum => 15 }
 
   class << self
