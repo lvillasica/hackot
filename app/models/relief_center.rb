@@ -1,5 +1,5 @@
 class ReliefCenter < ActiveRecord::Base
-  attr_accessible :description, :identifier, :latitude, :longitude, :name, :password, :email
+  attr_accessible :description, :latitude, :longitude, :name, :password, :email
 
   # A S S O C I A T I O N S
   has_many :events
@@ -7,7 +7,6 @@ class ReliefCenter < ActiveRecord::Base
   # V A L I D A T I O N S
   validates_numericality_of :latitude, :longitude, :allow_nil => true
   validates_presence_of :name
-  validate :identifier, :presence => true, :length => { :minimum => 3, :maximum => 15 }
 
   class << self
     def create_from_auth(auth)
