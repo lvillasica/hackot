@@ -5,7 +5,9 @@ Hackot::Application.routes.draw do
 
   resources :events, :only => [:index, :show, :create, :update]
   resources :relief_centers, :only => [:index, :show, :update] do
-    resources :events, :only => [:index, :show]
+    member do
+      get :timesheet
+    end
   end
   resources :users, :only => [:index, :show]
 
