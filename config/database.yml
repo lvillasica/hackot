@@ -1,4 +1,4 @@
-# SQLite version 3.x
+# SQLite version 3.xx
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
@@ -7,7 +7,7 @@ development:
   adapter: mysql2
   database: hackot_dev
   username: root
-  password: root
+  password: ~
   pool: 5
   timeout: 5000
 
