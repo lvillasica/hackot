@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     user = @resource.find_by_provider_and_uid(auth["provider"], auth["uid"].to_s) || @resource.create_from_auth(auth)
+    if user.class == User
+      redirect_to logout_path
+      return
+    end
     session[:uid] = user.uid
     respond_to do |format|
       format.html { redirect_to index_path }
