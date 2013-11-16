@@ -5,7 +5,7 @@
 
   <div class="span7">
     <h4>Events</h4>
-    <table id="eventsList" class="table table-hover">
+    <table id="events" class="table table-hover">
       <thead>
         <tr>
           <th width="10%">Date</th>
@@ -14,17 +14,15 @@
         </tr>
       </thead>
       <tbody>
-        <% 50.times do %>
-        <tr>
-          <td>11/16/13</td>
-          <td>Title here</td>
-          <td>
-            <a href="#" class="btn">Edit</a>
-            <a href="#" class="btn btn-danger">Cancel</a>
-          </td>
-        </tr>
-        <% end %>
       </tbody>
     </table>
   </div>
 </div>
+
+<% content_for :js  do %>
+<script>
+  $(function() {
+    Events.listRCEvents('<%= current_resource.id %>');
+  });
+</script>
+<% end %>

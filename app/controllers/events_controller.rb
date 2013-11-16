@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+  	@events = if params[:relief_center_id].present?
+  		ReliefCenter.find_by_id(params[:relief_center_id].to_i).try(:events)
+  	else
+    	Event.all
+    end
   end
 
   def show

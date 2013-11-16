@@ -6,17 +6,6 @@ window.ReliefCenters = {
         <span class="name">DSWD</span> \
         <span class="badge badge-success pull-right events-count"></span> \
       </div> \
-    ',
-
-    rcEvent: ' \
-      <tr> \
-        <td>11/16/13</td> \
-        <td>Title here</td> \
-        <td> \
-          <a href="#" class="btn">Edit</a> \
-          <a href="#" class="btn btn-danger">Cancel</a> \
-        </td> \
-      </tr> \
     '
   },
 
@@ -46,5 +35,7 @@ window.ReliefCenters = {
 
   noData: function() {
     this.container.html('No relief centers found.');
-  }
+  },
+
+  
 }
