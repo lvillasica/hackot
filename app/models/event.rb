@@ -11,4 +11,12 @@ class Event < ActiveRecord::Base
 
   # S C O P E S
   scope :active, where(status: 1)
+
+  def required
+  	0
+  end
+
+  def actual
+  	0
+  end
 end
