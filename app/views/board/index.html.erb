@@ -1,1 +1,30 @@
-Hackot
+<div class="row-fluid">
+  <div class="span3">
+    <h4>Relief Centers</h4>
+    <% 100.times do %>
+      <%= render 'board/relief_center'  %>
+    <% end %>
+  </div>
+  <div class="span9">
+    <h4>Announcements</h4>
+
+    <div class="announcement span5">
+      <div class="header">
+        <h5>Title</h5>
+        <small class="title">DSWD</small>
+      </div>
+      <div class="header">
+        <!-- change badge color according to status -->
+        <small><strong>Required</strong></small> <span class="badge badge-info">30</span>
+        <small><em>Actual</em></small> <span class="badge badge-success">30</span>
+      </div>
+      <div class="details">
+        We need this...
+      </div>
+    </div>
+
+    <% 100.times do %>
+      <%= render 'board/announcement'  %>
+    <% end %>
+  </div>
+</div>

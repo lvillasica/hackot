@@ -2,13 +2,22 @@
 <html>
 <head>
   <title>Hackot</title>
-  <%= stylesheet_link_tag :all, :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag :application, :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Hackot</a>
+        <a href="/" class="btn pull-right">Login with facebook</a>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
-
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>
