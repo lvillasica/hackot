@@ -38,3 +38,8 @@ gem 'jbuilder', '1.5.2'
 
 # To use debugger
 # gem 'debugger'
+gem 'omniauth-facebook', '1.4.0'
+
+group :development do
+  gem 'pry'
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131116073621) do
+ActiveRecord::Schema.define(:version => 20131116123752) do
 
   create_table "admins", :force => true do |t|
     t.string   "login"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20131116073621) do
     t.decimal  "longitude",   :precision => 15, :scale => 10
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "email"
   end
 
   add_index "relief_centers", ["identifier"], :name => "index_relief_centers_on_identifier", :unique => true
@@ -74,6 +77,9 @@ ActiveRecord::Schema.define(:version => 20131116073621) do
     t.string   "mobile"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "email"
   end
 
   add_index "users", ["mobile"], :name => "index_users_on_mobile", :unique => true
