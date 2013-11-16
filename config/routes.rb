@@ -11,9 +11,7 @@ Hackot::Application.routes.draw do
   end
 
   resources :events, :only => [:index, :show] do
-    member do
-      get :users
-    end
+    resources :users, :only => [:index]
   end
 
   resources :users, :only => [:index, :show, :update]

@@ -15,7 +15,7 @@ window.Events = {
 		',
 
     rcItemEvent: ' \
-      <tr> \
+      <tr class="event"> \
         <td class="date"></td> \
         <td class="title"></td> \
         <td class="count"></td> \
@@ -73,6 +73,7 @@ window.Events = {
       _this.container.find("tr.nodata").remove();
 			_.each(_this.events, function(evt) {
         elClone = el.clone();
+        elClone.data('id', evt.id);
 				elClone.find(".date").text(evt.formatted_time);
         elClone.find(".title").text(evt.title);
         elClone.find(".count").text(evt.volunteers_needed);
@@ -93,6 +94,11 @@ window.Events = {
       evt.preventDefault();
       _this.submitForm($(this));
     });
+
+    $('#events').on('click', '.event', function(e) {
+    	e.preventDefault();
+    	window.location = '/events/' + $(e.currentTarget).data('id') + '/users'
+    });
   },
 
   submitForm: function(form) {
@@ -103,6 +109,7 @@ window.Events = {
       if(data.error) {
         alert(data.error.join("\n"));
       } else {
+      	$el.data('id', evt.id);
         $el.find(".date").text(data.formatted_time);
         $el.find(".title").text(data.title);
         $el.find(".count").text(data.volunteers_needed);

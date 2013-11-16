@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @event = Event.find_by_id(params[:event_id].to_i)
   end
 
   def show
