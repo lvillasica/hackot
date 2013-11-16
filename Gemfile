@@ -6,7 +6,6 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # gem 'sqlite3'
-gem 'mysql2', '~> 0.3.11'
 
 
 # Gems used only for assets and not required
@@ -38,4 +37,10 @@ gem 'omniauth-facebook', '1.4.0'
 
 group :development do
   gem 'pry'
+  gem 'mysql2', '~> 0.3.11'
+end
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
 end
