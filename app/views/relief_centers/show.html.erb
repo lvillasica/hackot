@@ -23,6 +23,7 @@
 <script>
   $(function() {
     Events.listRCEvents('<%= current_resource.id %>');
+    ReliefCenters.listenEvents();
   });
 </script>
 <% end %>
