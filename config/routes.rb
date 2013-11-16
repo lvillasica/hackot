@@ -4,7 +4,11 @@ Hackot::Application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :events, :only => [:index, :show, :create, :update]
-  resources :relief_centers, :only => [:index, :show, :update]
+  resources :relief_centers, :only => [:index, :show, :update] do
+    collection do
+      get :send_updates
+    end
+  end
 
   resources :events, :only => [:index, :show] do
     member do
