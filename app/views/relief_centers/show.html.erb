@@ -28,3 +28,11 @@
     </table>
   </div>
 </div>
+
+<% content_for :js  do %>
+<script>
+  $(function() {
+    ReliefCenters.listenEvents();
+  });
+</script>
+<% end %>

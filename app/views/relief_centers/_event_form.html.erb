@@ -1,5 +1,5 @@
 <h4>Post Event</h4>
-<%= form_for(@event, :html => { :class => "form-horizontal" }) do |f| %>
+<%= form_for(@event, :html => { :class => "form-horizontal", :id => "eventForm" }) do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => "control-label" %>
     <div class="controls">
@@ -16,12 +16,6 @@
     <%= f.label :volunteers_needed, "No. of Volunteers", :class => "control-label" %>
     <div class="controls">
       <%= f.text_field :volunteers_needed, :placeholder => "Volunteers Required" %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :status, :class => "control-label" %>
-    <div class="controls">
-      <%= f.select :status, options_for_select([["Ongoing", 1], ["Done", 0]]) %>
     </div>
   </div>
   <div class="control-group">

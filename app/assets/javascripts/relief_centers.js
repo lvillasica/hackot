@@ -22,6 +22,14 @@ window.ReliefCenters = {
 
   container: $("#reliefCenters"),
 
+  listenEvents: function() {
+    var _this = this;
+    $("#eventForm").submit(function(evt) {
+      evt.preventDefault();
+      _this.submitForm();
+    });
+  },
+
   list: function() {
     var el = $(this.templates.reliefCenter),
         elClone = null,
@@ -42,6 +50,11 @@ window.ReliefCenters = {
         _this.noData();
       }
     });
+  },
+
+  submitForm: function() {
+    // submit form
+    // edit once update event comes
   },
 
   noData: function() {
