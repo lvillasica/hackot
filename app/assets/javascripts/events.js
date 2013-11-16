@@ -14,10 +14,11 @@ window.Events = {
 		</div> \
 	',
 
+	container: $('#events'),
+
 	list: function() {
 		var el = $(this.template),
 				elClone = null,
-				container = $('#events'),
 				events = [],
 				_this = this;
 
@@ -30,9 +31,17 @@ window.Events = {
 				elClone.find('.required').text(evt.required);
 				elClone.find('.actual').text(evt.actual);
 				elClone.find('.details').text(evt.details);
-				container.append(elClone);
+				_this.container.append(elClone);
 			});
+
+			if(events.length === 0) {
+				_this.noData();
+			}
 		});
+	},
+
+	noData: function() {
+		this.container.html('No events found.');
 	}
 
 }
