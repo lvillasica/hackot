@@ -8,6 +8,8 @@ Hackot::Application.routes.draw do
     member do
       get :timesheet
     end
+
+    resources :events, :only => [:index, :show]
   end
   resources :users, :only => [:index, :show]
 
