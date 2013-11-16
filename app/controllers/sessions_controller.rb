@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :get_resource
+  before_filter :get_resource, :only => :create
 
   def create
     auth = request.env["omniauth.auth"]
@@ -8,28 +8,33 @@ class SessionsController < ApplicationController
     render json: { :success => session[:uid].present? }
   end
 
-  def check
-    if uid = session[:uid]
-      @resource = Greeter.find uid
-      render json: @resource.to_json
-    else
-      render json: { :session => false }
-    end
-  end
+  # def check
+  #   if uid = session[:uid]
+  #     @resource ||= @resource.find uid
+  #     render json: @resource.to_json
+  #   else
+  #     render json: { :session => false }
+  #   end
+  # end
 
   def destroy
     session[:uid] = nil
-    render json: { :session => false }
+    session[:type] = nil
+    redirect_to :root
   end
 
   protected
   def get_resource
     type = request.env["omniauth.params"]["type"]
     if type.present?
-      @resource = type.camelize.constantize
+      @resource = session[:type] = type.camelize.constantize
     else
       render json: { :error => "User type not found!" }
       return
     end
+
+  rescue NameError => e
+    render json: { :error => "User type not found!" }
+    return
   end
 end
