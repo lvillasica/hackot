@@ -53,7 +53,7 @@ window.Events = {
 	},
 
 	noData: function(container, htmlMsg) {
-		if(typeof htmlMsg === 'undefined') htmlMsg = 'No events found.';
+		if(typeof htmlMsg === 'undefined') htmlMsg = '<p class="nodata">No events found.</p>';
 		if(this.events.length === 0) {
 			container.html(htmlMsg);
 		}
@@ -74,7 +74,7 @@ window.Events = {
 				_this.container.find('tbody').append(elClone);
 			});
 
-			_this.noData(_this.container.find('tbody'), '<tr><td colspan="3">No events found.</td></tr>');
+			_this.noData(_this.container.find('tbody'), '<tr class="nodata"><td colspan="3">No events found.</td></tr>');
 		});
 	}
 
