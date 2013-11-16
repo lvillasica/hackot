@@ -4,6 +4,11 @@ class ReliefCenter < ActiveRecord::Base
   # A S S O C I A T I O N S
   has_many :events
 
+  # V A L I D A T I O N S
+  validates_numericality_of :latitude, :longitude
+  validates_presence_of :name, :description
+  validate :identifier, :presence => true, :length => { :minimum => 3, :maximum => 15 }
+
   class << self
     def create_from_auth(auth)
       create! do |user|
