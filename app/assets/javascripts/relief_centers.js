@@ -1,16 +1,29 @@
 window.ReliefCenters = {
 
-  template: ' \
-    <div class="rc"> \
-      <span class="name">DSWD</span> \
-      <span class="badge badge-success pull-right events-count"></span> \
-    </div> \
-  ',
+  templates: {
+    reliefCenter: ' \
+      <div class="rc"> \
+        <span class="name">DSWD</span> \
+        <span class="badge badge-success pull-right events-count"></span> \
+      </div> \
+    ',
+
+    rcEvent: ' \
+      <tr> \
+        <td>11/16/13</td> \
+        <td>Title here</td> \
+        <td> \
+          <a href="#" class="btn">Edit</a> \
+          <a href="#" class="btn btn-danger">Cancel</a> \
+        </td> \
+      </tr> \
+    '
+  },
 
   container: $("#reliefCenters"),
 
   list: function() {
-    var el = $(this.template),
+    var el = $(this.templates.reliefCenter),
         elClone = null,
         reliefCenters = [],
         _this = this;
