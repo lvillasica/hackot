@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_resource.create(params[:event])
+    @event = current_resource.events.create(params[:event])
   end
 
   def update

@@ -8,9 +8,10 @@
     <table id="events" class="table table-hover">
       <thead>
         <tr>
-          <th width="10%">Date</th>
+          <th>Date</th>
           <th>Title</th>
-          <th width="30%">Action</th>
+          <th>No. of Volunteers</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -19,11 +20,22 @@
   </div>
 </div>
 
+<script type="text/html" id="event-item">
+  <tr>
+    <td class="date"></td>
+    <td class="title"></td>
+    <td class="count"></td>
+    <td>
+      <a href="#" class="btn edit-btn">Edit</a>
+      <a href="#" class="btn btn-danger cancel-btn">Cancel</a>
+    </td>
+  </tr>
+</script>
+
 <% content_for :js  do %>
 <script>
   $(function() {
-    Events.listRCEvents('<%= current_resource.id %>');
-    ReliefCenters.listenEvents();
+    Events.listRCEvents('<%= current_resource.id %>').listenEvents();
   });
 </script>
 <% end %>

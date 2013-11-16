@@ -11,14 +11,6 @@ window.ReliefCenters = {
 
   container: $("#reliefCenters"),
 
-  listenEvents: function() {
-    var _this = this;
-    $("#eventForm").submit(function(evt) {
-      evt.preventDefault();
-      _this.submitForm();
-    });
-  },
-
   list: function() {
     var el = $(this.templates.reliefCenter),
         elClone = null,
@@ -50,5 +42,5 @@ window.ReliefCenters = {
     this.container.html('No relief centers found.');
   },
 
-  
+
 }

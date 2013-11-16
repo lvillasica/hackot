@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   belongs_to :relief_center
 
   # V A L I D A T I O N S
-  validates_inclusion_of :status, :in => [0,1]
+  # validates_inclusion_of :status, :in => [0,1]
   validates_numericality_of :volunteers_needed
   validates_presence_of :title
 
@@ -18,5 +18,9 @@ class Event < ActiveRecord::Base
 
   def actual
   	0
+  end
+
+  def formatted_time
+    created_at.strftime("%m/%d/%Y - %I:%M %p")
   end
 end
