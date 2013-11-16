@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(:version => 20131116191758) do
     t.string   "lastname"
     t.string   "password"
     t.string   "mobile"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "provider"
     t.string   "uid"
     t.string   "email"
-    t.integer  "relief_center_id"
+    t.integer  "event_id"
   end
 
   add_index "users", ["mobile"], :name => "index_users_on_mobile", :unique => true

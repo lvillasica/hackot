@@ -13,7 +13,4 @@ class ReliefCentersController < ApplicationController
     @relief_center = ReliefCenter.find_by_id(params[:id])
     @relief_center.update_attributes(params[:relief_center].presence)
   end
-
-  def timesheet
-  end
 end

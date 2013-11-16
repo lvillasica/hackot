@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
 
   # A S S O C I A T I O N S
   belongs_to :relief_center
+  has_many :users
 
   # V A L I D A T I O N S
   # validates_inclusion_of :status, :in => [0,1]
@@ -13,11 +14,11 @@ class Event < ActiveRecord::Base
   scope :active, where(status: 1)
 
   def required
-  	0
+    read_attribute(:volunteers_needed)
   end
 
   def actual
-  	0
+    users.count
   end
 
   def formatted_time

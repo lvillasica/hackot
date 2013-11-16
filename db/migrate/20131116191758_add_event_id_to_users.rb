@@ -1,6 +1,6 @@
 class AddReliefCenterIdToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :relief_center_id, :integer
+    add_column :users, :event_id, :integer
   end
 
   def up
