@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_resource, :is_rc?, :is_user
+  helper_method :current_resource, :is_rc?, :is_user, :index_path
 
   protected
   def current_resource
@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
       if is_rc?
         relief_center_path(current_resource.id)
       else
+        user_path(current_resource.id)
       end
     else
       root_path
