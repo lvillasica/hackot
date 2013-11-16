@@ -4,8 +4,7 @@ window.Events = {
 		itemEvent: ' \
 			<div class="announcement span5"> \
 			  <div class="header"> \
-			    <h5>Title</h5> \
-			    <small class="title"></small> \
+			    <h5 class="title"></h5> \
 			  </div> \
 			  <div class="header"> \
 			    <small><strong>Required</strong></small> <span class="required badge badge-info"></span> \
@@ -37,14 +36,18 @@ window.Events = {
 				_this = this;
 
 		$.get('/events', function(collection) {
-			events = collection.events;
+			_this.events = collection.events;
 			elClone = el.clone();
-			_.each(this.events, function(evt) {
+			_.each(_this.events, function(evt) {
 				elClone.data('id', evt.id);
 				elClone.find('.title').text(evt.title);
 				elClone.find('.required').text(evt.required);
 				elClone.find('.actual').text(evt.actual);
-				elClone.find('.details').text(evt.details);
+				if(evt.details === null) {
+					elClone.find('.details').html("<i>No details.</i>");
+				}else{
+					elClone.find('.details').text(evt.details);
+				}
 				_this.container.append(elClone);
 			});
 
