@@ -5,6 +5,7 @@ Hackot::Application.routes.draw do
 
   resources :events, :only => [:index, :show, :create, :update]
   resources :relief_centers, :only => [:index, :show, :update] do
+    resources :events, :only => [:index, :show]
     collection do
       get :send_updates
       get :send_sms
