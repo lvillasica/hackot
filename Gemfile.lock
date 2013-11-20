@@ -28,6 +28,9 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    akami (1.2.0)
+      gyoku (>= 0.4.0)
+      nokogiri (>= 1.4.0)
     arel (3.0.3)
     builder (3.0.4)
     coderay (1.1.0)
@@ -43,9 +46,14 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    gyoku (1.1.0)
+      builder (>= 2.1.2)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
+    httpi (2.1.0)
+      rack
+      rubyntlm (~> 0.3.2)
     i18n (0.6.5)
     jbuilder (1.5.2)
       activesupport (>= 3.0.0)
@@ -72,6 +80,8 @@ GEM
     multi_json (1.8.2)
     multipart-post (1.2.0)
     mysql2 (0.3.14)
+    nokogiri (1.5.10)
+    nori (2.3.0)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -123,6 +133,15 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rubyntlm (0.3.4)
+    savon (2.3.0)
+      akami (~> 1.2.0)
+      builder (>= 2.1.2)
+      gyoku (~> 1.1.0)
+      httpi (~> 2.1.0)
+      nokogiri (>= 1.4.0, < 1.6)
+      nori (~> 2.3.0)
+      wasabi (~> 3.2.0)
     slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -146,6 +165,9 @@ GEM
     uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    wasabi (3.2.0)
+      httpi (~> 2.0)
+      nokogiri (>= 1.4.0, < 1.6)
 
 PLATFORMS
   ruby
@@ -161,6 +183,7 @@ DEPENDENCIES
   pry
   rails (= 3.2.11)
   rails_12factor
+  savon (~> 2.0)
   therubyracer
   twitter-bootstrap-rails (= 2.2.7)
   uglifier (>= 1.0.3)

@@ -20,6 +20,8 @@ window.ReliefCenters = {
     $.get('/relief_centers', function(collection) {
       centers = collection.relief_centers;
       elClone = el.clone();
+      if(centers.length) _this.container.html('');
+
       _.each(centers, function(center) {
         elClone.data('id', center.id)
         elClone.find(".name").text(center.name);

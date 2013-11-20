@@ -38,8 +38,10 @@ window.Events = {
 
 		$.get('/events', function(collection) {
 			_this.events = collection.events;
-			elClone = el.clone();
+      if(_this.events.length) _this.container.html('');
+
 			_.each(_this.events, function(evt) {
+        var elClone = el.clone();
 				elClone.data('id', evt.id);
 				elClone.find('.title').text(evt.title);
 				elClone.find('.required').text(evt.required);
@@ -82,7 +84,7 @@ window.Events = {
 				_this.container.find('tbody').append(elClone);
 			});
 
-			_this.noData(_this.container.find('tbody'), '<tr class="nodata"><td colspan="3">No events found.</td></tr>');
+			_this.noData(_this.container.find('tbody'), '<tr class="nodata"><td colspan="4">No events found.</td></tr>');
 		});
 
     return _this;
@@ -109,7 +111,7 @@ window.Events = {
       if(data.error) {
         alert(data.error.join("\n"));
       } else {
-      	$el.data('id', evt.id);
+      	$el.data('id', data.id);
         $el.find(".date").text(data.formatted_time);
         $el.find(".title").text(data.title);
         $el.find(".count").text(data.volunteers_needed);

@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="span5">
+  <div class="panel span5">
     <%= render 'event_form' %>
   </div>
 
-  <div class="span7">
-    <h4>Events</h4>
+  <div class="panel span7">
+    <h4><i class="icon-pushpin"></i> Events</h4>
     <table id="events" class="table table-hover">
       <thead>
         <tr>
@@ -15,6 +15,9 @@
         </tr>
       </thead>
       <tbody>
+        <tr class="nodata">
+          <td colspan="4">Loading...</td>
+        </tr>
       </tbody>
     </table>
   </div>

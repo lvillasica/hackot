@@ -10,19 +10,24 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="/">Hackot</a>
-        <% if current_resource %>
-        <a href="/logout" class="btn pull-right">Sign Out</a>
-        <%#= link_to "Edit Profile", index_path, :class => "btn pull-right" %>
-        <% else %>
-        <a href="/auth/facebook?type=relief_center" class="btn pull-right">Relief Center</a>
-        <a href="/auth/facebook?type=user" class="btn pull-right">Sign-up as Volunteer</a>
-        <% end %>
+        <ul class="nav pull-right">
+          <% if current_resource %>
+            <% if is_rc? %>
+              <li><%= link_to "Events", relief_center_path(current_resource) %></li>
+              <li><%= link_to "SMS Test", send_updates_relief_centers_path %></li>
+            <% end %>
+          <li><a href="/logout">Sign Out</a></li>
+          <% else %>
+          <li><a href="/auth/facebook?type=relief_center">Relief Center <i class="icon-facebook-sign"></i></a></li>
+          <li><a href="/auth/facebook?type=user">Volunteer <i class="icon-facebook-sign"></i></a></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
 
   <div class="container-fluid">
-  	<h2><%= current_resource.name if current_resource %></h2>
+  	<h2 id="resource-name"><%= current_resource.name if current_resource %></h2>
     <%= yield %>
   </div>
   <%= javascript_include_tag "application" %>

@@ -2,12 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -18,8 +12,8 @@ group :assets do
   gem 'twitter-bootstrap-rails', '2.2.7'
 end
 
+# frontend
 gem 'jquery-rails', '3.0.4'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -34,7 +28,10 @@ gem 'jbuilder', '1.5.2'
 
 # To use debugger
 # gem 'debugger'
+# auth
 gem 'omniauth-facebook', '1.4.0'
+# SOAP
+gem 'savon', '~> 2.0'
 
 group :development do
   gem 'pry'
@@ -45,5 +42,3 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
-gem 'savon', '~> 2.0'
