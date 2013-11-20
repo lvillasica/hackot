@@ -24,16 +24,17 @@
   $(function() {
     $("#smsForm").submit(function(){
       $.ajax({
-        url : 'http://sms.hackot.com',
+        url : '/relief_centers/send_sms',
         type : 'GET',
         dataType: 'JSON',
-        data : { contact_number : $("#contact_number").val(), text_message : $("text_message").val() },
+        data : { contact_number : $("#contact_number").val(), text_message : $("#text_message").val() },
         success : function(response) {
-          if (response.result) {
-            alert(response.message);
+          var res = response.result[0];
+          if (res.result) {
+            alert(res.message);
             setTimeout(function(){ window.location.reload(); },1000);
           } else {
-            alert('Problem sending SMS \n '+ response.message);
+            alert('Problem sending SMS \n '+ res.message);
           }
         }
       });

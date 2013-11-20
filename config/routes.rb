@@ -7,6 +7,7 @@ Hackot::Application.routes.draw do
   resources :relief_centers, :only => [:index, :show, :update] do
     collection do
       get :send_updates
+      get :send_sms
     end
   end
 

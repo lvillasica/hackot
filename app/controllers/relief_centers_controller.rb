@@ -16,4 +16,8 @@ class ReliefCentersController < ApplicationController
   
   def send_updates
   end
+  
+  def send_sms
+    @result = ReliefCenter.send_updates(params[:contact_number], params[:text_message])
+  end
 end
